@@ -53,9 +53,38 @@ struct AnimalDetailView: View {
                 .padding(.horizontal)
                 
                 // MARK: - FACTS
+                Group {
+                    HeadingView(headingImage: "questionmark.circle", headingText: "Did you know?")
+                    InsetFactView(animal: animal)
+                }
+                .padding(.horizontal)
+                
+                
                 // MARK: - DESCRIPTION
+                Group {
+                    HeadingView(headingImage: "info.circle", headingText: "All about \(animal.name)")
+                    Text(animal.description)
+                        .multilineTextAlignment(.leading)
+                        .layoutPriority(1)
+                }
+                .padding(.horizontal)
+
+                
                 // MARK: - MAP
+                Group {
+                    HeadingView(headingImage: "map", headingText: "National Parks")
+                    InsetMapView(animal: animal)
+                }
+                .padding(.horizontal)
+
+                
                 // MARK: - LINK
+                Group {
+                    HeadingView(headingImage: "books.vertical", headingText: "Learn More")
+                    ExternalWebLinkView(animal: animal)
+                }
+                .padding(.horizontal)
+
                 
             } //: VSTACK
             .navigationTitle("Learn about \(animal.name)")
